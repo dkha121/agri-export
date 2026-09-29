@@ -1,26 +1,455 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Design tokens — copied from the UI/UX handoff (§22).
+   Do not introduce new colours or radii outside this block.
+------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --forest-900: #102a24;
+  --forest-700: #163f35;
+  --green-500: #3f725d;
+  --gold-500: #d4a53a;
+  --ivory: #f7f5ef;
+  --sand: #e9e3d5;
+  --white: #ffffff;
+  --ink: #14201c;
+  /* Spec Sage Gray is #66756E, but it only reaches 4.44:1 on Ivory and 3.9:1 on
+     Sand — below WCAG AA (§19). Darkened minimally to pass AA on all light
+     surfaces. Pending design approval. */
+  --text-muted: #56645e;
+  --border: #d8ded9;
+  --success: #2f7d4a;
+  --error: #a9493d;
+
+  /* Component-state colours defined in §6.1 (button states). */
+  --green-50: #edf2ee;
+  --disabled-bg: #aab6b1;
+  --disabled-fg: #98a29d;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --container: 1280px;
+  --shadow: 0 8px 30px rgba(16, 42, 36, 0.06);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  --display-font: var(--font-instrument-serif), "Times New Roman", serif;
+  --gutter: 20px;
+  --section-y: 80px;
+  --header-h: 80px;
+  --header-h-scrolled: 68px;
+  --mobile-bar-h: 0px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --gutter: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 48px;
+    --section-y: 120px;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --gutter: 64px;
+    --section-y: 136px;
+  }
+}
+@media (max-width: 1023.98px) {
+  :root {
+    --mobile-bar-h: 72px;
   }
 }
 
+@theme inline {
+  --color-forest-900: var(--forest-900);
+  --color-forest-700: var(--forest-700);
+  --color-green-500: var(--green-500);
+  --color-green-50: var(--green-50);
+  --color-gold-500: var(--gold-500);
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-muted: var(--text-muted);
+  --color-line: var(--border);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-disabled: var(--disabled-bg);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --shadow-soft: var(--shadow);
+
+  --font-serif: var(--display-font);
+  --font-sans: var(--font-manrope), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h-scrolled) + 72px);
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-feature-settings: "ss01";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
+
+::selection {
+  background: var(--gold-500);
+  color: var(--forest-900);
+}
+
+/* Visible focus ring (§6.1, §19): 2px Harvest Gold outer ring.
+   A dark halo keeps the ring ≥3:1 against light surfaces. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(16, 42, 36, 0.85);
+  border-radius: var(--radius-sm);
+}
+.on-dark :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  box-shadow: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* ------------------------------------------------------------------
+   Layout primitives
+------------------------------------------------------------------- */
+.container-x {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section-y {
+  padding-block: var(--section-y);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Vietnamese: Instrument Serif lacks Vietnamese glyphs, so display type
+   switches to Noto Serif Display, narrowed via its wdth axis. */
+html[lang="vi"] {
+  --display-font: var(--font-noto-serif-display), "Times New Roman", serif;
+}
+html[lang="vi"] :is(.t-h1, .t-h2, .t-h3, .font-serif) {
+  font-variation-settings: "wdth" 80;
+  letter-spacing: -0.02em;
+}
+
+/* Green-500 text is 5.1:1 on Ivory/White but only 4.3:1 on Sand —
+   use Forest 700 for green text on sand sections to keep WCAG AA. */
+.bg-sand .text-green-500 {
+  color: var(--forest-700);
+}
+
+/* ------------------------------------------------------------------
+   Typography scale (§5.2)
+------------------------------------------------------------------- */
+.t-h1,
+.t-h2,
+.t-h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.t-h1 {
+  font-size: 44px;
+  line-height: 48px;
+}
+.t-h2 {
+  font-size: 36px;
+  line-height: 42px;
+}
+.t-h3 {
+  font-size: 26px;
+  line-height: 32px;
+}
+.t-h4 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.t-lead {
+  font-size: 18px;
+  line-height: 28px;
+}
+.t-small {
+  font-size: 14px;
+  line-height: 22px;
+}
+.t-label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 480px) {
+  .t-h1 {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+@media (min-width: 1024px) {
+  .t-h1 {
+    font-size: 64px;
+    line-height: 68px;
+  }
+  .t-h2 {
+    font-size: 46px;
+    line-height: 52px;
+  }
+  .t-h3 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .t-h4 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .t-lead {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .t-h1 {
+    font-size: 72px;
+    line-height: 76px;
+  }
+  .t-h2 {
+    font-size: 52px;
+    line-height: 58px;
+  }
+  .t-h3 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+.prose-body > * + * {
+  margin-top: 1.1em;
+}
+.prose-body h2 {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: 1.6em;
+}
+.prose-body h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-top: 1.4em;
+}
+.prose-body ul {
+  list-style: none;
+  padding-left: 0;
+}
+.prose-body ul li {
+  position: relative;
+  padding-left: 20px;
+}
+.prose-body ul li + li {
+  margin-top: 8px;
+}
+.prose-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: var(--green-500);
+}
+.prose-body a {
+  color: var(--forest-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------
+   Motion (§5.4) — fade-up only, respects reduced motion.
+------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 360ms ease-out,
+      transform 360ms ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .img-zoom {
+    transition: transform 400ms ease-out;
+  }
+  .group:hover .img-zoom,
+  .group:focus-within .img-zoom {
+    transform: scale(1.03);
+  }
+
+  .arrow-nudge {
+    transition: transform 250ms ease-out;
+  }
+  .group:hover .arrow-nudge,
+  .group:focus-visible .arrow-nudge,
+  a:hover > .arrow-nudge,
+  button:hover > .arrow-nudge {
+    transform: translateX(4px);
+  }
+
+  .chain-progress {
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 1400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .is-visible .chain-progress,
+  .chain-progress.is-visible {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes drawer-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-sheet {
+  animation: sheet-in 260ms ease-out;
+}
+.anim-drawer {
+  animation: drawer-in 260ms ease-out;
+}
+.anim-fade {
+  animation: fade-in 200ms ease-out;
+}
+
+/* Sticky mobile action bars must never cover content (§24). */
+.has-mobile-bar {
+  padding-bottom: var(--mobile-bar-h);
+}
+
+/* Utility for scrollable rows (tabs, chips) without visible scrollbars */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media print {
+  header,
+  footer,
+  [data-print-hidden] {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
 }
