@@ -29,6 +29,8 @@ export default async function HomePage() {
   const h = t.home;
   const categories = db.getCategories();
   const featured = db.getProduct("robusta-grade-1-screen-16")!;
+  // Hero card: Owi Chewi dried mango (matches the hero photo).
+  const heroOffer = db.getProduct("owi-chewi-dried-mango")!;
   const moreFeatured = db.getFeaturedProducts().filter((p) => p.slug !== featured.slug).slice(0, 3);
   const validCerts = db.getCertificates().filter((c) => c.status === "valid");
   const facility = db.getFacilities()[0];
@@ -84,19 +86,19 @@ export default async function HomePage() {
           </div>
           <div className="relative lg:col-span-5">
             <Media
-              image={{ src: "/images/coffee/beans-1.jpg", kind: "human", alt: h.heroImageAlt, caption: h.heroImageCaption, focal: "50% 50%" }}
+              image={{ src: "/images/hero/all-1.jpg", kind: "human", alt: h.heroImageAlt, caption: h.heroImageCaption, focal: "38% 62%" }}
               className="aspect-[4/5] max-h-[620px] w-full rounded-md sm:aspect-[5/4] lg:aspect-[4/5]"
               preload
               labelPosition="top"
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
             <div className="absolute -bottom-6 left-4 right-4 rounded-md border border-line bg-white p-4 shadow-soft sm:left-auto sm:right-6 sm:w-[300px] lg:-left-10 lg:right-auto">
-              <p className="t-label text-green-500">{h.currentOffer(featured.crop)}</p>
-              <p className="mt-1.5 text-[16px] font-bold leading-6">{featured.name}</p>
+              <p className="t-label text-green-500">{h.currentOffer(heroOffer.crop)}</p>
+              <p className="mt-1.5 text-[16px] font-bold leading-6">{heroOffer.name}</p>
               <p className="mt-1 flex items-center gap-1.5 text-[13px] text-muted">
-                <MapPin size={14} className="text-green-500" /> {t.products.cardOrigin(db.getOrigin(featured.originIds[0])?.name ?? "")}
+                <MapPin size={14} className="text-green-500" /> {t.products.cardOrigin(db.getOrigin(heroOffer.originIds[0])?.name ?? "")}
               </p>
-              <Link href={l(productHref(featured))} className="group mt-2 inline-flex min-h-[36px] items-center gap-1.5 text-[14px] font-semibold text-forest-700">
+              <Link href={l(productHref(heroOffer))} className="group mt-2 inline-flex min-h-[36px] items-center gap-1.5 text-[14px] font-semibold text-forest-700">
                 {t.common.viewSpec} <ArrowRight size={16} className="arrow-nudge" />
               </Link>
             </div>
