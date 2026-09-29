@@ -25,7 +25,7 @@ export default async function SustainabilityPage() {
         kicker={s.kicker}
         title={s.title}
         intro={s.intro}
-        image={{ src: "/images/coffee/cherries-cluster.jpg", kind: "origin", alt: s.heroAlt, caption: s.heroCaption, focal: "50% 45%" }}
+        image={{ src: "/images/pepper/green-clusters.jpg", kind: "origin", alt: s.heroAlt, caption: s.heroCaption, focal: "50% 50%" }}
       />
 
       <section className="section-y bg-ivory" aria-labelledby="metrics-title">

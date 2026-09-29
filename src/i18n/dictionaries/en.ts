@@ -97,7 +97,7 @@ export const en = {
     lead: "Traceable agricultural products and reliable export-ready supply for global food businesses.",
     explore: "Explore Products",
     categoriesAria: "Product categories",
-    heroImageAlt: "Dried mango, cashews, cinnamon, star anise and pepper on a rustic table above tropical orchards",
+    heroImageAlt: "Coffee beans, overhead close-up",
     heroImageCaption: "Working farmer – coffee harvest, Dak Lak",
     currentOffer: (crop: string) => `Current offer · crop ${crop}`,
     factsAria: "Company facts",
@@ -480,7 +480,7 @@ export const en = {
     title: "Measured, scoped and dated",
     intro:
       "Every figure on this page states what it covers, the period it refers to and — where relevant — the baseline it is compared to. If we can't measure it, we don't claim it.",
-    heroAlt: "Coffee cherries ripening on the plant",
+    heroAlt: "Green pepper berries on the vine",
     heroCaption: "Landscape – intercropped coffee",
     metricsKicker: "Metrics",
     metricsTitle: "Key figures with their scope",
