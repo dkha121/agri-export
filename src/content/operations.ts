@@ -13,7 +13,7 @@ export interface Step {
 
 /** Home §7.6 — Farm → Buyer (6 steps). */
 export const valueChain: Step[] = [
-  { id: "farm", title: "Farm", summary: "Farmer groups in registered sourcing regions supply cherry, paddy, nuts and fruit." },
+  { id: "farm", title: "Farm", summary: "Farmer groups in registered sourcing regions supply coffee cherry, pepper, cashew, spices and mango." },
   { id: "process", title: "Process", summary: "Cleaning, milling, shelling and sorting in our own facilities." },
   { id: "qc", title: "QC", summary: "Physical and lab checks at intake, in-process and before release." },
   { id: "pack", title: "Pack", summary: "Buyer-specified packing, lot marks and private label where required." },
@@ -80,7 +80,7 @@ export const qcSteps: Step[] = [
     id: "physical",
     title: "Physical",
     summary: "Grade, size and defect analysis to spec.",
-    detail: "Screen analysis for coffee, broken % and grain length for rice, count per pound for cashew, bulk density for pepper — using the same methods stated on the specification.",
+    detail: "Screen analysis for coffee, count per pound for cashew, bulk density for pepper, whole-star ratio for anise, oil content for cassia, moisture and water activity for dried mango — using the same methods stated on the specification.",
     points: ["Screen / count / density", "Defect & broken %", "Colour"],
   },
   {
@@ -127,23 +127,23 @@ export const labCapabilities = [
 /* ------------------------------------------------------------------ LOGISTICS */
 
 export const shippingModes = [
-  { mode: "FCL", title: "Full container load", body: "Standard for all dry commodities. 20 ft for coffee, rice, cashew; 40 ft for spices and light cargo." },
+  { mode: "FCL", title: "Full container load", body: "Standard for all dry commodities. 20 ft for coffee, cashew, pepper and dried mango; 40 ft for cinnamon and star anise." },
   { mode: "LCL", title: "Less than container load", body: "Available for specialty coffee lots and trial orders via consolidators from Cat Lai." },
-  { mode: "Reefer", title: "Refrigerated container", body: "40 ft reefer for fresh and frozen fruit with temperature set-point and data logger." },
-  { mode: "Air", title: "Air freight", body: "Fresh fruit samples and urgent small orders via Tan Son Nhat (SGN)." },
+  { mode: "Mixed", title: "Mixed container", body: "Cinnamon, star anise and pepper can share one container for buyers who need smaller volumes of each." },
+  { mode: "Air", title: "Air freight", body: "Samples and urgent small orders, e.g. Owi Chewi retail cartons, via Tan Son Nhat (SGN)." },
 ];
 
 export const containerLoading = [
   { product: "Green coffee, 60 kg jute", c20: "≈ 19.2 MT (320 bags)", c40: "—", note: "Bulk liner ≈ 21 MT / 20 ft" },
-  { product: "Rice, 25 / 50 kg PP", c20: "≈ 25 MT", c40: "—", note: "Retail packs ≈ 22 MT / 20 ft" },
   { product: "Cashew kernels, vacuum cartons", c20: "≈ 700 cartons (15.9 MT)", c40: "≈ 1,400 cartons", note: "2 × 11.34 kg per carton" },
   { product: "Black pepper, 25 / 50 kg PP", c20: "≈ 16 – 18 MT", c40: "≈ 26 MT", note: "Depends on density" },
-  { product: "Spices, cartons", c20: "≈ 7 MT", c40: "≈ 12 – 16 MT", note: "Volume-limited" },
-  { product: "Fresh fruit, cartons", c20: "—", c40: "≈ 20 pallets (RF)", note: "Set-point per product" },
+  { product: "Cassia cinnamon, cartons / bags", c20: "≈ 7 MT", c40: "≈ 12 – 16 MT", note: "Volume-limited" },
+  { product: "Star anise, cartons / bags", c20: "≈ 5 MT", c40: "≈ 10 – 12 MT", note: "Volume-limited" },
+  { product: "Dried mango, 10 kg cartons", c20: "≈ 8 – 10 MT", c40: "≈ 18 – 20 MT", note: "Ambient; keep away from heat" },
 ];
 
 export const ports = [
-  { name: "Cat Lai", city: "Ho Chi Minh City", code: "VNCLI", use: "Main port for coffee, rice, cashew, pepper and reefers" },
+  { name: "Cat Lai", city: "Ho Chi Minh City", code: "VNCLI", use: "Main port for coffee, cashew, pepper and dried mango" },
   { name: "Cai Mep", city: "Ho Chi Minh City (former Ba Ria–Vung Tau)", code: "VNCMT", use: "Deep-water port for direct mainline services to Europe & US" },
   { name: "Hai Phong", city: "Hai Phong", code: "VNHPH", use: "Northern spices (cassia, star anise)" },
 ];

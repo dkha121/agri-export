@@ -40,7 +40,7 @@ export default async function QualityPage() {
         kicker={q.kicker}
         title={q.title}
         intro={q.intro}
-        image={{ kind: "factory", alt: q.heroAlt, caption: q.heroCaption }}
+        image={{ src: "/images/coffee/beans-scoop.jpg", kind: "factory", alt: q.heroAlt, caption: q.heroCaption, focal: "75% 50%" }}
         actions={
           <>
             <ButtonLink href="#certificates">{q.certCenter}</ButtonLink>

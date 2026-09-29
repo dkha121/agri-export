@@ -144,4 +144,4 @@ export const contactSchema = z.object({
 });
 export type ContactData = z.output<typeof contactSchema>;
 
-export const CONTACT_TOPICS = ["sourcing", "samples", "documents", "eudr", "fsvp", "fresh-fruit", "private-label", "visit", "other"] as const;
+export const CONTACT_TOPICS = ["sourcing", "samples", "documents", "eudr", "fsvp", "retail-brand", "private-label", "visit", "other"] as const;

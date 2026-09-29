@@ -1,8 +1,8 @@
-# Verdant Origin — Vietnam agricultural export website
+# TrustVN — Vietnam agricultural export website
 
 B2B website cho doanh nghiệp xuất khẩu nông sản Việt Nam, xây theo `agri-export-uiux-handoff.pdf` (v1.0). Conversion chính: **Request for Quote (RFQ)**.
 
-> Tên thương hiệu "Verdant Origin", logo, số liệu, chứng nhận, liên hệ và toàn bộ dữ liệu kinh doanh hiện là **placeholder minh họa** (`verified: false`). Phải thay bằng dữ liệu doanh nghiệp xác thực trước production (§1, §25).
+> Tên công ty TrustVN, mã số và địa chỉ trụ sở do doanh nghiệp cung cấp; logo Owi Chewi ở `public/brand/`. Số liệu, chứng nhận, liên hệ và toàn bộ dữ liệu kinh doanh hiện là **placeholder minh họa** (`verified: false`). Phải thay bằng dữ liệu doanh nghiệp xác thực trước production (§1, §25).
 
 ## Chạy dự án
 

@@ -37,22 +37,22 @@ export const certificatesVi: Record<string, DeepPartial<Certificate>> = {
     scope: "Nhân điều sống (nguyên hạt và nhân vỡ)",
     claimRule: "Thư chứng nhận theo danh mục sản phẩm; các dòng điều rang không thuộc phạm vi.",
   },
-  "haccp-cantho": {
-    entity: "Nhà máy Xay xát & Đóng gói Gạo Cần Thơ",
-    scope: "Xay xát, tách màu và đóng gói gạo trắng và gạo thơm",
-    claimRule: "Áp dụng cho gạo được đóng gói tại nhà máy Cần Thơ.",
+  "haccp-dongthap": {
+    entity: "Nhà máy Chế biến Trái cây Sấy Đồng Tháp",
+    scope: "Chế biến và đóng gói xoài sấy dẻo (hàng xá và túi bán lẻ)",
+    claimRule: "Áp dụng cho xoài sấy được chế biến và đóng gói tại nhà máy Đồng Tháp.",
   },
-  "brcgs-rice": {
-    entity: "Nhà máy Xay xát & Đóng gói Gạo Cần Thơ",
-    scope: "Dây chuyền đóng gói gạo bán lẻ (1–5 kg)",
+  "brcgs-mango": {
+    entity: "Nhà máy Chế biến Trái cây Sấy Đồng Tháp",
+    scope: "Dây chuyền đóng túi bán lẻ (Owi Chewi và nhãn riêng)",
     claimRule: "Đã hết hạn — không được công bố trên trang sản phẩm hoặc tài liệu marketing cho đến khi được gia hạn.",
   },
-  "globalgap-dragonfruit": {
+  "globalgap-mango": {
     scheme: "GLOBALG.A.P. IFA (Phương án 2 – nhóm nhà sản xuất)",
-    entity: "Nhóm sản xuất thanh long Bình Thuận [tên nhóm]",
-    scope: "Thanh long — chỉ các nông trại thành viên có tên trong danh sách (GGN trên chứng nhận)",
+    entity: "Nhóm sản xuất xoài Đồng Tháp [tên nhóm]",
+    scope: "Xoài tươi làm nguyên liệu chế biến — chỉ các vườn thành viên có tên trong danh sách (GGN trên chứng nhận)",
     claimRule:
-      "Sử dụng GGN và phạm vi chứng nhận; không ngụ ý rằng toàn bộ trái cây đều được chứng nhận. Nhãn GGN chỉ dùng cho sản phẩm đủ điều kiện.",
+      "Chỉ áp dụng cho xoài tươi từ các vườn có tên trong danh sách; không ngụ ý rằng sản phẩm xoài sấy hay toàn bộ trái cây đều đạt chứng nhận GLOBALG.A.P.",
   },
   "organic-pepper": {
     entity: "Nhóm nông hộ trồng tiêu Gia Lai [tên nhóm]",

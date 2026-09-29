@@ -14,7 +14,7 @@ import { ArrowRight, Check, Info, MapPin } from "@/components/ui/icons";
 import { Breadcrumb, IllustrativeBadge, StatusBadge, Tag } from "@/components/ui/primitives";
 import { getI18n, pageMetadata } from "@/i18n/server";
 import { getCountryOptions } from "@/lib/countries";
-import { createDb, productHref } from "@/lib/data";
+import { categorySlug as productCategorySlug, createDb, productHref } from "@/lib/data";
 import { withFileSize } from "@/lib/document-meta";
 import { SITE_URL } from "@/lib/site";
 
@@ -23,7 +23,7 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return createDb("en")
     .getProducts()
-    .map((p) => ({ category: p.category, slug: p.slug }));
+    .map((p) => ({ category: productCategorySlug(p.category), slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/products/[category]/[slug]">): Promise<Metadata> {
@@ -39,7 +39,7 @@ export default async function ProductDetailPage({ params }: PageProps<"/[locale]
   const { t, l, db, date, locale } = await getI18n();
   const pt = t.product;
   const product = db.getProduct(slug);
-  if (!product || product.category !== categorySlug) notFound();
+  if (!product || productCategorySlug(product.category) !== categorySlug) notFound();
 
   const category = db.getCategory(product.category)!;
   const origins = product.originIds.map((id) => db.getOrigin(id)).filter((o): o is NonNullable<typeof o> => Boolean(o));

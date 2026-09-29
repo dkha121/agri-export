@@ -71,7 +71,7 @@ export default async function OriginsPage() {
       {/* Farmer / landscape story */}
       <section className="on-dark bg-forest-900 text-white" aria-labelledby="story-title">
         <div className="grid lg:grid-cols-2">
-          <Media image={{ kind: "human", alt: o.storyImageAlt, caption: o.storyImageCaption }} className="aspect-[4/3] lg:aspect-auto lg:min-h-[560px]" />
+          <Media image={{ src: "/images/pepper/hands.jpg", kind: "human", alt: o.storyImageAlt, caption: o.storyImageCaption, focal: "50% 60%" }} className="aspect-[4/3] lg:aspect-auto lg:min-h-[560px]" />
           <div className="flex items-center">
             <div className="px-[var(--gutter)] py-16 lg:max-w-[640px] lg:px-16 lg:py-24">
               <Kicker onDark className="mb-5">

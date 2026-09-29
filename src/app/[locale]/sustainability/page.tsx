@@ -25,7 +25,7 @@ export default async function SustainabilityPage() {
         kicker={s.kicker}
         title={s.title}
         intro={s.intro}
-        image={{ kind: "origin", alt: s.heroAlt, caption: s.heroCaption }}
+        image={{ src: "/images/coffee/cherries-cluster.jpg", kind: "origin", alt: s.heroAlt, caption: s.heroCaption, focal: "50% 45%" }}
       />
 
       <section className="section-y bg-ivory" aria-labelledby="metrics-title">
@@ -73,7 +73,7 @@ export default async function SustainabilityPage() {
 
       <section className="section-y bg-sand" aria-labelledby="prog-title">
         <div className="container-x grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <Media image={{ kind: "human", alt: s.progImageAlt, caption: s.progImageCaption }} className="aspect-[4/3] rounded-md lg:col-span-6" />
+          <Media image={{ src: "/images/pepper/vine.jpg", kind: "human", alt: s.progImageAlt, caption: s.progImageCaption, focal: "50% 40%" }} className="aspect-[4/3] rounded-md lg:col-span-6" />
           <div className="lg:col-span-6">
             <Kicker className="mb-4">{s.progKicker}</Kicker>
             <h2 id="prog-title" className="t-h2">

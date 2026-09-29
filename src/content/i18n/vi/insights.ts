@@ -14,10 +14,7 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
       "Tình hình ra hoa, lượng mưa và hành vi bán hàng của nông dân tại Tây Nguyên — cùng những tác động đến thời điểm ký hợp đồng và nguồn cung theo cỡ sàng.",
     reviewedBy: "Bộ phận cà phê · QA",
     cta: { label: "Tải thông số kỹ thuật Robusta S16" },
-    image: {
-      alt: "Vườn cà phê tại Đắk Lắk trước vụ thu hoạch",
-      caption: "Ảnh từ trên cao – Đắk Lắk trước vụ thu hoạch",
-    },
+    image: { alt: "Quả cà phê Robusta đang chín trước vụ thu hoạch" },
     body: [
       {
         type: "p",
@@ -68,10 +65,7 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
       "Cách đo cỡ sàng, vì sao cỡ sàng quan trọng đối với độ đồng đều khi rang, và cách đọc bảng thông số kỹ thuật cà phê nhân.",
     reviewedBy: "Phòng thí nghiệm QA",
     cta: { label: "Xem các hạng Robusta" },
-    image: {
-      alt: "Hạt cà phê trên các sàng phân loại",
-      caption: "Ảnh cận cảnh – phân tích sàng",
-    },
+    image: { alt: "Hạt cà phê đồng đều kích cỡ" },
     body: [
       {
         type: "p",
@@ -103,28 +97,25 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
     ],
   },
 
-  "documents-for-importing-vietnamese-fruit": {
-    title: "Chứng từ nhập khẩu trái cây tươi Việt Nam: danh mục kiểm tra cho người mua",
+  "documents-for-importing-spices-and-dried-mango": {
+    title: "Nhập khẩu gia vị và xoài sấy Việt Nam: danh mục chứng từ cần kiểm tra",
     summary:
-      "Yêu cầu kiểm dịch thực vật, mã số vùng trồng và quy định xử lý khác nhau theo từng mặt hàng và thị trường đích. Dưới đây là cách kiểm tra trước khi ký hợp đồng.",
+      "Những chứng từ nào đi kèm lô hàng quế, hoa hồi, hồ tiêu và xoài sấy — và những yêu cầu nào phụ thuộc vào thị trường đích của quý khách.",
     reviewedBy: "Bộ phận tuân thủ",
-    cta: { label: "Liên hệ bộ phận trái cây tươi" },
-    image: {
-      alt: "Container lạnh tại cảng",
-      caption: "Logistics – bãi container lạnh",
-    },
+    cta: { label: "Liên hệ bộ phận xuất khẩu" },
+    image: { alt: "Hoa hồi, thanh quế và hạt cà phê trên vải bố" },
     body: [
       {
         type: "p",
-        text: "Không có một trạng thái “sẵn sàng xuất khẩu” chung cho trái cây tươi. Mỗi nước nhập khẩu đặt ra điều kiện riêng cho từng mặt hàng và xuất xứ, và các điều kiện này có thể thay đổi. Vì vậy, chúng tôi xác nhận khả năng đáp ứng cho từng cặp sản phẩm – thị trường đích trước khi ký hợp đồng.",
+        text: "Gia vị và trái cây sấy là sản phẩm đã qua chế biến, nhưng các nước nhập khẩu vẫn quản lý chặt chẽ — về kiểm dịch thực vật, an toàn thực phẩm và ghi nhãn. Yêu cầu phụ thuộc vào sản phẩm và thị trường đích, vì vậy chúng tôi xác nhận bộ chứng từ cho từng hợp đồng.",
       },
       { type: "h2", text: "Kiểm tra yêu cầu của thị trường đích trước tiên" },
       {
         type: "ul",
         items: [
-          "Hoa Kỳ: tra cứu mặt hàng và xuất xứ trên cơ sở dữ liệu ACIR của USDA APHIS; việc xử lý (ví dụ chiếu xạ) có thể là bắt buộc.",
-          "Liên minh châu Âu: áp dụng các quy định về sức khỏe thực vật và giới hạn dư lượng tối đa (MRL); một số mặt hàng bị tăng cường kiểm tra.",
-          "Các thị trường châu Á: nhiều nước yêu cầu mã số vùng trồng và mã số cơ sở đóng gói đã được đăng ký.",
+          "Liên minh châu Âu: áp dụng giới hạn dư lượng tối đa (MRL), quy định về chất nhiễm bẩn (ví dụ aflatoxin, ethylene oxide) và ghi nhãn; một số loại gia vị bị tăng cường kiểm tra chính thức.",
+          "Hoa Kỳ: nhà nhập khẩu phải đăng ký cơ sở thực phẩm và thực hiện xác minh nhà cung cấp theo FSVP; quy định đối với sản phẩm thực vật được kiểm tra theo từng mặt hàng.",
+          "Sản phẩm bán lẻ như xoài sấy Owi Chewi cần nhãn phù hợp quy định của thị trường đích — thành phần, chất gây dị ứng, thông tin dinh dưỡng và thông tin nhà nhập khẩu.",
         ],
       },
       { type: "h2", text: "Các chứng từ thường đi kèm lô hàng" },
@@ -133,9 +124,9 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
         head: ["Chứng từ", "Khi nào"],
         rows: [
           ["Hóa đơn thương mại & phiếu đóng gói (packing list)", "Luôn luôn"],
-          ["Giấy chứng nhận kiểm dịch thực vật", "Sản phẩm thực vật tươi — theo yêu cầu của thị trường đích"],
-          ["Chứng nhận xuất xứ (C/O)", "Khi đề nghị hưởng ưu đãi thuế quan"],
-          ["Giấy chứng nhận xử lý", "Khi bắt buộc phải xử lý"],
+          ["Giấy chứng nhận kiểm dịch thực vật", "Gia vị, khi thị trường đích yêu cầu"],
+          ["Giấy chứng nhận xuất xứ (C/O)", "Khi đề nghị hưởng ưu đãi thuế quan"],
+          ["Phiếu kết quả phân tích (COA)", "Theo từng lô — độ ẩm, vi sinh, chất nhiễm bẩn theo hợp đồng"],
         ],
       },
       {
@@ -151,10 +142,7 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
       "Vì sao đất bazan và mùa khô rõ rệt định hình Robusta Việt Nam — và nguồn cung từ nông hộ nhỏ được tổ chức thành các lô có thể truy xuất nguồn gốc như thế nào.",
     reviewedBy: "Đội thu mua",
     cta: { label: "Khám phá vùng nguyên liệu Tây Nguyên" },
-    image: {
-      alt: "Đất đỏ bazan và các hàng cà phê",
-      caption: "Phong cảnh – đất bazan",
-    },
+    image: { alt: "Dây tiêu trồng xen cùng cà phê tại Tây Nguyên" },
     body: [
       {
         type: "p",
@@ -183,10 +171,7 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
       "Một COA cần có những nội dung gì, cách kiểm tra năng lực công nhận của phòng thí nghiệm, và sự khác biệt giữa COA mẫu và COA của lô hàng.",
     reviewedBy: "Phòng thí nghiệm QA",
     cta: { label: "Tải COA mẫu" },
-    image: {
-      alt: "Kỹ thuật viên phòng thí nghiệm đang kiểm nghiệm mẫu",
-      caption: "Phòng thí nghiệm – kiểm nghiệm độ ẩm & aflatoxin",
-    },
+    image: { alt: "Mẫu nhân điều trong bát" },
     body: [
       {
         type: "p",
@@ -216,10 +201,7 @@ export const insightsVi: Record<string, DeepPartial<Insight>> = {
       "Các mốc áp dụng, những thông tin nhà vận hành phải thu thập, và những thông tin chúng tôi có thể cung cấp cho các lô cà phê thuộc phạm vi điều chỉnh.",
     reviewedBy: "Bộ phận tuân thủ · Pháp chế (đang chờ)",
     cta: { label: "Yêu cầu bộ thông tin EUDR" },
-    image: {
-      alt: "Các thửa cà phê đã được lập bản đồ",
-      caption: "Vùng nguyên liệu – lập bản đồ thửa đất",
-    },
+    image: { alt: "Cành cà phê với quả chín" },
     body: [
       {
         type: "p",

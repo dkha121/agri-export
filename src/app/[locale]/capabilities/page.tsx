@@ -97,7 +97,7 @@ export default async function CapabilitiesPage() {
                         {f.products.map((k, i) => (
                           <span key={k}>
                             {i > 0 && ", "}
-                            <Link href={l(`/products/${k}`)} className="font-semibold text-forest-700 underline underline-offset-4">
+                            <Link href={l(`/products/${db.getCategory(k)?.slug ?? k}`)} className="font-semibold text-forest-700 underline underline-offset-4">
                               {db.getCategory(k)?.shortName}
                             </Link>
                           </span>

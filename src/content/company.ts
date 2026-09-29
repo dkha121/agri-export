@@ -1,17 +1,20 @@
 import type { Metric } from "./types";
 
 /**
- * Corporate identity & contacts. Brand name, legal name and all contact
- * details are PLACEHOLDERS (§25 "Brand" / "Content") — replace before launch.
+ * Corporate identity & contacts. Company name, registration and head-office
+ * address are supplied by the company; emails / phones are still placeholders.
  */
 export const company = {
-  brand: "Verdant Origin",
-  brandShort: "Verdant",
-  legalName: "[Legal company name] Joint Stock Company",
-  registration: "Enterprise code: [XXXXXXXXXX]",
+  brand: "TrustVN",
+  brandShort: "TrustVN",
+  /** Retail brand of the company (logo used in header / footer). */
+  retailBrand: "Owi Chewi",
+  logo: "/brand/owi-chewi.svg",
+  legalName: "TrustVN",
+  registration: "Enterprise code: Not yet available",
   tagline: "Vietnam Origin. Global Supply.",
   founded: 2008,
-  headquarters: "[Street address], Thu Duc, Ho Chi Minh City, Vietnam",
+  headquarters: "17A1 Street 9, Tang Nhon Phu, Ho Chi Minh City, Vietnam",
   salesEmail: "export@example.com",
   phone: "+84 (0)28 0000 0000",
   whatsapp: "+84 900 000 000",
@@ -34,7 +37,7 @@ export const trustMetrics: Metric[] = [
   },
   {
     id: "capacity",
-    value: "220,000 MT",
+    value: "74,000 MT",
     label: "Annual processing capacity",
     owner: "Operations",
     definition: "Nameplate, all facilities, per year",
@@ -54,18 +57,18 @@ export const contacts = [
     languages: "English, German",
   },
   {
-    team: "Rice & Cashew desk",
-    region: "Asia · Middle East · Africa",
+    team: "Cashew & Dried mango desk",
+    region: "Asia · Middle East · Oceania",
     name: "[Sales manager name]",
-    email: "rice-cashew@example.com",
+    email: "cashew-mango@example.com",
     phone: "+84 900 000 002",
     languages: "English, Chinese",
   },
   {
-    team: "Fresh fruit & Spices desk",
+    team: "Cinnamon & Star anise desk",
     region: "All markets",
     name: "[Sales manager name]",
-    email: "fresh@example.com",
+    email: "spices@example.com",
     phone: "+84 900 000 003",
     languages: "English, Korean",
   },
@@ -83,7 +86,7 @@ export const offices = [
   { name: "Head office & export sales", address: company.headquarters, note: "Sales, QA/compliance, logistics" },
   { name: "Coffee processing plant", address: "[Verified address], Buon Ma Thuot, Dak Lak", note: "Visits by appointment" },
   { name: "Cashew processing plant", address: "[Verified address], Dong Xoai, Dong Nai", note: "Visits by appointment" },
-  { name: "Rice mill", address: "[Verified address], Can Tho", note: "Visits by appointment" },
+  { name: "Dried fruit plant", address: "[Verified address], Cao Lanh, Dong Thap", note: "Visits by appointment" },
 ];
 
 /** Global reach (Home). Split confirmed shipments vs target markets (§25 Markets). */

@@ -84,7 +84,7 @@ export default async function HomePage() {
           </div>
           <div className="relative lg:col-span-5">
             <Media
-              image={{ kind: "human", alt: h.heroImageAlt, caption: h.heroImageCaption }}
+              image={{ src: "/images/hero/all-1.jpg", kind: "human", alt: h.heroImageAlt, caption: h.heroImageCaption, focal: "38% 62%" }}
               className="aspect-[4/5] max-h-[620px] w-full rounded-md sm:aspect-[5/4] lg:aspect-[4/5]"
               preload
               labelPosition="top"

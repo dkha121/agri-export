@@ -26,7 +26,7 @@ export const operationsVi: {
   leadTimes?: DeepPartial<typeof leadTimes>;
 } = {
   valueChain: [
-    { title: "Nông trại", summary: "Các nhóm nông hộ tại vùng nguyên liệu đã đăng ký cung cấp cà phê quả, lúa, hạt điều và trái cây." },
+    { title: "Nông trại", summary: "Các nhóm nông hộ tại vùng nguyên liệu đã đăng ký cung cấp cà phê quả, hồ tiêu, hạt điều, gia vị và xoài." },
     { title: "Chế biến", summary: "Làm sạch, xay xát, tách vỏ và phân loại tại các nhà máy của chúng tôi." },
     { title: "QC", summary: "Kiểm tra cảm quan, vật lý và phòng thí nghiệm khi tiếp nhận, trong quá trình và trước khi xuất lô." },
     { title: "Đóng gói", summary: "Đóng gói theo yêu cầu khách hàng, ký mã hiệu lô và nhãn riêng khi cần." },
@@ -82,7 +82,7 @@ export const operationsVi: {
       title: "Vật lý",
       summary: "Phân tích hạng, kích cỡ và lỗi theo tiêu chuẩn.",
       detail:
-        "Phân tích sàng đối với cà phê, tỷ lệ tấm và chiều dài hạt đối với gạo, số hạt trên pound đối với điều, dung trọng đối với hồ tiêu — theo đúng phương pháp nêu trong bản tiêu chuẩn kỹ thuật.",
+        "Phân tích sàng đối với cà phê, số hạt trên pound đối với điều, dung trọng đối với hồ tiêu, tỷ lệ bông nguyên đối với hoa hồi, hàm lượng tinh dầu đối với quế, độ ẩm và hoạt độ nước đối với xoài sấy — theo đúng phương pháp nêu trong bản tiêu chuẩn kỹ thuật.",
       points: ["Cỡ sàng / số hạt / dung trọng", "Tỷ lệ lỗi & hạt vỡ", "Màu sắc"],
     },
     {
@@ -140,36 +140,36 @@ export const operationsVi: {
   shippingModes: [
     {
       title: "Hàng nguyên container",
-      body: "Tiêu chuẩn cho mọi mặt hàng khô. Cont 20 ft cho cà phê, gạo, điều; cont 40 ft cho gia vị và hàng nhẹ.",
+      body: "Tiêu chuẩn cho mọi mặt hàng khô. Cont 20 ft cho cà phê, điều, hồ tiêu và xoài sấy; cont 40 ft cho quế và hoa hồi.",
     },
     {
       title: "Hàng lẻ (ghép container)",
       body: "Áp dụng cho các lô cà phê đặc sản và đơn hàng thử qua đơn vị gom hàng từ Cát Lái.",
     },
     {
-      title: "Container lạnh",
-      body: "Cont lạnh 40 ft cho trái cây tươi và đông lạnh, có cài đặt nhiệt độ và thiết bị ghi dữ liệu.",
+      title: "Container ghép hàng",
+      body: "Quế, hoa hồi và hồ tiêu có thể đóng ghép chung một container cho người mua cần khối lượng nhỏ hơn của từng mặt hàng.",
     },
     {
       title: "Đường hàng không",
-      body: "Mẫu trái cây tươi và đơn hàng nhỏ gấp qua sân bay Tân Sơn Nhất (SGN).",
+      body: "Hàng mẫu và đơn hàng nhỏ gấp, ví dụ thùng bán lẻ Owi Chewi, qua sân bay Tân Sơn Nhất (SGN).",
     },
   ],
   containerLoading: [
-    { product: "Cà phê nhân, bao đay 60 kg", c20: "≈ 19.2 MT (320 bao)", c40: "—", note: "Đóng xá túi lót ≈ 21 MT / 20 ft" },
-    { product: "Gạo, bao PP 25 / 50 kg", c20: "≈ 25 MT", c40: "—", note: "Túi bán lẻ ≈ 22 MT / 20 ft" },
+    { product: "Cà phê nhân, bao đay 60 kg", c20: "≈ 19.2 MT (320 bao)", c40: "—", note: "Đóng xá túi lót ≈ 21 MT / cont 20 ft" },
     {
-      product: "Nhân điều, thùng hút chân không",
-      c20: "≈ 700 thùng (15.9 MT)",
-      c40: "≈ 1,400 thùng",
-      note: "2 × 11.34 kg mỗi thùng",
+      product: "Nhân điều, thùng carton hút chân không",
+      c20: "≈ 700 carton (15.9 MT)",
+      c40: "≈ 1,400 carton",
+      note: "2 × 11.34 kg mỗi carton",
     },
     { product: "Hồ tiêu đen, bao PP 25 / 50 kg", c20: "≈ 16 – 18 MT", c40: "≈ 26 MT", note: "Tùy theo dung trọng" },
-    { product: "Gia vị, thùng carton", c20: "≈ 7 MT", c40: "≈ 12 – 16 MT", note: "Giới hạn theo thể tích" },
-    { product: "Trái cây tươi, thùng carton", c20: "—", c40: "≈ 20 pallet (RF)", note: "Nhiệt độ cài đặt theo từng sản phẩm" },
+    { product: "Quế, thùng carton / bao", c20: "≈ 7 MT", c40: "≈ 12 – 16 MT", note: "Giới hạn theo thể tích" },
+    { product: "Hoa hồi, thùng carton / bao", c20: "≈ 5 MT", c40: "≈ 10 – 12 MT", note: "Giới hạn theo thể tích" },
+    { product: "Xoài sấy, thùng carton 10 kg", c20: "≈ 8 – 10 MT", c40: "≈ 18 – 20 MT", note: "Nhiệt độ thường; tránh nguồn nhiệt" },
   ],
   ports: [
-    { city: "TP. Hồ Chí Minh", use: "Cảng chính cho cà phê, gạo, điều, hồ tiêu và container lạnh" },
+    { city: "TP. Hồ Chí Minh", use: "Cảng chính cho cà phê, điều, hồ tiêu và xoài sấy" },
     {
       city: "TP. Hồ Chí Minh (trước đây là Bà Rịa – Vũng Tàu)",
       use: "Cảng nước sâu cho các tuyến mainline đi thẳng châu Âu & Mỹ",

@@ -32,7 +32,9 @@ export interface FilterGroup {
   options: { value: string; label: string; count: number }[];
 }
 
-export const productHref = (p: Pick<Product, "category" | "slug">) => `/products/${p.category}/${p.slug}`;
+/** URL segment for a category key (e.g. "anise" → "star-anise"). */
+export const categorySlug = (key: CategoryKey) => baseCategories.find((c) => c.key === key)?.slug ?? key;
+export const productHref = (p: Pick<Product, "category" | "slug">) => `/products/${categorySlug(p.category)}/${p.slug}`;
 
 export function formatSpecValue(field: SpecField, value: SpecValue): string | null {
   if (value === null || value === undefined || value === "") return null;

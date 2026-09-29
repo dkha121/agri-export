@@ -30,14 +30,6 @@ const bigBag: PackingVi = {
   material: "PP dệt có túi lót trong",
   loading: "≈ 20 MT / cont 20 ft",
 };
-const pp25: PackingVi = { name: "Bao PP dệt", netWeight: "25 kg", material: "PP có lót PE bên trong", loading: "≈ 25 MT / cont 20 ft" };
-const pp50: PackingVi = { name: "Bao PP dệt", netWeight: "50 kg", material: "PP có lót PE bên trong", loading: "≈ 25 MT / cont 20 ft" };
-const retailRice: PackingVi = {
-  name: "Túi bán lẻ",
-  netWeight: "1 / 2 / 5 kg",
-  material: "PA/PE hút chân không hoặc màng ghép in",
-  loading: "≈ 22 MT / cont 20 ft",
-};
 const cashewTin: PackingVi = {
   name: "Thùng thiếc hút chân không, 2 thùng/carton",
   netWeight: "2 × 11.34 kg (50 lb)",
@@ -56,23 +48,25 @@ const cashewRetail: PackingVi = {
   material: "Túi đứng có khóa zip",
 };
 const pepperBag: PackingVi = { name: "Bao PP", netWeight: "25 / 50 kg", material: "PP có lót PE bên trong", loading: "≈ 16–18 MT / cont 20 ft" };
-const fruitCarton: PackingVi = {
-  name: "Thùng carton có lỗ thông gió",
-  netWeight: "5 – 10 kg",
-  material: "Carton sóng, lưới xốp bọc từng trái",
-  loading: "≈ 20 pallet / container lạnh 40 ft",
-};
-const frozenCarton: PackingVi = {
-  name: "Thùng carton hàng đông lạnh",
-  netWeight: "10 kg (túi trong hút chân không)",
-  material: "Túi PE bên trong + thùng carton ngoài",
-  loading: "≈ 24 MT / container lạnh 40 ft",
-};
 const spiceCarton: PackingVi = { name: "Thùng carton", netWeight: "10 – 15 kg", material: "Carton sóng có lót PE", loading: "≈ 12–16 MT / cont 40 ft" };
+const spiceBag: PackingVi = { name: "Bao PP", netWeight: "20 – 25 kg", material: "PP có lót PE bên trong", loading: "≈ 12–14 MT / cont 40 ft" };
+const powderBag: PackingVi = { name: "Bao giấy kraft", netWeight: "25 kg", material: "Giấy kraft nhiều lớp, lót PE bên trong", loading: "≈ 14 MT / cont 20 ft" };
+const mangoCarton: PackingVi = {
+  name: "Thùng carton hàng xá",
+  netWeight: "10 kg (2 túi PE × 5 kg)",
+  material: "Túi PE đạt chuẩn thực phẩm + thùng carton ngoài",
+  loading: "≈ 8–10 MT / cont 20 ft",
+};
+const mangoPouch: PackingVi = {
+  name: "Túi bán lẻ Owi Chewi",
+  netWeight: "100 g / 250 g / 500 g",
+  material: "Túi đứng có khóa zip, nạp khí nitơ",
+  loading: "≈ 1.200 carton / cont 20 ft",
+};
 
 const coffeePorts = ["Cát Lái (TP. Hồ Chí Minh)", "Cái Mép"];
 const southPorts = ["Cát Lái (TP. Hồ Chí Minh)", "Cái Mép"];
-const northPorts = ["Hải Phòng"];
+const northPorts = ["Hải Phòng", "Cát Lái (TP. Hồ Chí Minh)"];
 
 const moq20 = "1 × cont 20 ft";
 
@@ -98,10 +92,10 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     loadingPorts: coffeePorts,
     moq: moq20,
     rfqGrades: ["Loại 1 · Sàng 16 · làm sạch", "Loại 1 · Sàng 16 · đánh bóng ướt", "Loại 1 · Sàng 16 · chứng nhận RA"],
-    image: { alt: "Cà phê nhân Robusta Loại 1 Sàng 16", caption: "Ảnh cận sản phẩm – Robusta S16" },
+    image: { alt: "Hạt cà phê phủ kín khung hình" },
     gallery: [
-      { alt: "Hạt Robusta sàng 16 trên mặt sàng", caption: "Cận cảnh – kiểm tra cỡ sàng" },
-      { alt: "Bao đay xếp chồng chờ đóng hàng", caption: "Đóng gói – bao đay 60 kg" },
+      { alt: "Quả cà phê robusta chín và xanh trên cành" },
+      { alt: "Hạt cà phê trong muỗng xúc và bao đay" },
     ],
   },
   "robusta-grade-1-screen-18": {
@@ -123,8 +117,8 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [jute60, bulkLiner],
     loadingPorts: coffeePorts,
     moq: moq20,
-    image: { alt: "Cà phê nhân Robusta Sàng 18 đánh bóng ướt", caption: "Ảnh cận sản phẩm – Robusta S18" },
-    gallery: [{ alt: "Máy tách màu", caption: "Nhà máy – tách màu quang học" }],
+    image: { alt: "Cận cảnh hạt cà phê cỡ lớn" },
+    gallery: [{ alt: "Hạt cà phê nhìn từ trên xuống" }],
   },
   "robusta-grade-2-screen-13": {
     name: "Robusta Loại 2 – Sàng 13",
@@ -145,7 +139,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [jute60, bulkLiner],
     loadingPorts: coffeePorts,
     moq: moq20,
-    image: { alt: "Cà phê nhân Robusta Loại 2", caption: "Ảnh cận sản phẩm – Robusta L2 S13" },
+    image: { alt: "Hạt cà phê nhìn từ trên xuống" },
   },
   "arabica-cau-dat-washed": {
     name: "Arabica Cầu Đất – Chế biến ướt",
@@ -167,8 +161,8 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     loadingPorts: coffeePorts,
     moq: "Từ 1 pallet (hàng lẻ LCL) · ưu tiên cont 20 ft",
     rfqGrades: ["Chế biến ướt · 84+ điểm", "Chế biến ướt · 82–84 điểm", "Chế biến mật ong (honey)", "Chế biến khô (natural)"],
-    image: { alt: "Cà phê nhân Arabica chế biến ướt từ Cầu Đất", caption: "Ảnh cận sản phẩm – Arabica chế biến ướt" },
-    gallery: [{ alt: "Cao nguyên Cầu Đất lúc bình minh", caption: "Vùng nguyên liệu – Cầu Đất" }],
+    image: { alt: "Quả cà phê đang chín trên cây" },
+    gallery: [{ alt: "Cành cà phê với quả chín" }],
   },
   "fine-robusta-honey": {
     name: "Fine Robusta – Chế biến mật ong",
@@ -189,68 +183,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [jute60],
     loadingPorts: coffeePorts,
     moq: "Từ 1 pallet (hàng lẻ LCL)",
-    image: { alt: "Quả cà phê Robusta chín đỏ", caption: "Ảnh cận sản phẩm – tuyển chọn quả chín" },
-  },
-
-  // ------------------------------------------------------------------ RICE
-  "st25-fragrant-rice": {
-    name: "Gạo thơm ST25 – 5% tấm",
-    shortDescription: "Gạo hạt dài thơm, dẻo từ giống lúa Sóc Trăng, xay mới theo từng đơn hàng.",
-    overview:
-      "ST25 trồng theo hợp đồng bao tiêu với các hợp tác xã Đồng bằng sông Cửu Long, xay xát sát thời điểm giao hàng để giữ mùi thơm. Lau bóng hai lần, phân loại theo chiều dài và tách màu. Cung cấp dạng bao lớn hoặc bao bì bán lẻ nhãn riêng.",
-    crop: "Vụ Đông Xuân 2026",
-    processing: ["Xay xát", "Lau bóng hai lần", "Tách màu"],
-    grade: "5% tấm",
-    spec: {
-      variety: "ST25",
-      milling: "Xát kỹ, lau bóng hai lần",
-      cropYear: "Vụ Đông Xuân 2026",
-      packing: "Bao PP 25 / 50 kg · túi bán lẻ 1–5 kg",
-      shelfLife: "12 tháng (túi bán lẻ hút chân không)",
-    },
-    packings: [pp25, pp50, retailRice],
-    loadingPorts: southPorts,
-    moq: moq20,
-    image: { alt: "Hạt gạo thơm ST25", caption: "Ảnh cận sản phẩm – hạt gạo ST25" },
-    gallery: [{ alt: "Đóng gói gạo bán lẻ", caption: "Đóng gói – túi bán lẻ" }],
-  },
-  "jasmine-rice-5-broken": {
-    name: "Gạo Jasmine – 5% tấm",
-    shortDescription: "Gạo thơm hạt dài loại Jasmine cho nhà phân phối và dịch vụ ăn uống.",
-    overview:
-      "Các giống lúa thơm loại Jasmine (KDM / OM) từ An Giang và Đồng Tháp. Gạo thơm hạt dài ổn định cho kênh bán sỉ và dịch vụ ăn uống, xay xát và tách màu đạt 5% tấm.",
-    crop: "Vụ Hè Thu 2026",
-    processing: ["Xay xát", "Lau bóng", "Tách màu"],
-    grade: "5% tấm",
-    spec: {
-      variety: "Jasmine (KDM / OM 18)",
-      milling: "Xát kỹ, lau bóng",
-      cropYear: "Vụ Hè Thu 2026",
-      packing: "Bao PP 25 / 50 kg",
-    },
-    packings: [pp25, pp50],
-    loadingPorts: southPorts,
-    moq: moq20,
-    image: { alt: "Hạt gạo Jasmine", caption: "Ảnh cận sản phẩm – gạo Jasmine" },
-  },
-  "glutinous-rice-10-broken": {
-    name: "Gạo nếp – 10% tấm",
-    shortDescription: "Gạo nếp hạt dài cho nhà sản xuất thực phẩm và kênh bán lẻ châu Á.",
-    overview:
-      "Gạo nếp hạt dài xay xát đạt 10% tấm, dùng cho nhà sản xuất bánh kẹo, món tráng miệng và kênh bán lẻ thực phẩm châu Á. Hạt trắng đục, tạp chất thấp.",
-    crop: "Vụ Đông Xuân 2026",
-    processing: ["Xay xát", "Tách màu"],
-    grade: "10% tấm",
-    spec: {
-      variety: "Nếp hạt dài",
-      milling: "Xát kỹ",
-      cropYear: "Vụ Đông Xuân 2026",
-      packing: "Bao PP 25 / 50 kg",
-    },
-    packings: [pp25, pp50],
-    loadingPorts: southPorts,
-    moq: moq20,
-    image: { alt: "Hạt gạo nếp", caption: "Ảnh cận sản phẩm – gạo nếp" },
+    image: { alt: "Chùm quả cà phê đỏ và xanh" },
   },
 
   // ------------------------------------------------------------------ CASHEW
@@ -273,8 +206,11 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [cashewTin, cashewBag, cashewRetail],
     loadingPorts: southPorts,
     moq: "1 × cont 20 ft (≈ 700 carton)",
-    image: { alt: "Hạt điều nhân trắng nguyên W320", caption: "Ảnh cận sản phẩm – nhân điều W320" },
-    gallery: [{ alt: "Đóng gói hút chân không hạt điều", caption: "Đóng gói – thùng thiếc hút chân không" }],
+    image: { alt: "Nhân điều trắng trong rổ đan" },
+    gallery: [
+      { alt: "Nhân điều tràn ra từ bao đay" },
+      { alt: "Nhân điều trong bát trắng" },
+    ],
   },
   "cashew-kernels-w240": {
     name: "Hạt điều nhân W240",
@@ -295,7 +231,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [cashewTin, cashewBag],
     loadingPorts: southPorts,
     moq: moq20,
-    image: { alt: "Hạt điều nhân W240", caption: "Ảnh cận sản phẩm – nhân điều W240" },
+    image: { alt: "Nhân điều trắng cỡ lớn trong bát" },
   },
   "cashew-splits-ws": {
     name: "Hạt điều nhân vỡ đôi WS",
@@ -315,7 +251,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [cashewBag],
     loadingPorts: southPorts,
     moq: moq20,
-    image: { alt: "Hạt điều nhân trắng vỡ đôi", caption: "Ảnh cận sản phẩm – nhân vỡ đôi WS" },
+    image: { alt: "Nhân điều trong bát gỗ" },
   },
 
   // ------------------------------------------------------------------ PEPPER
@@ -336,7 +272,11 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [pepperBag, bigBag],
     loadingPorts: southPorts,
     moq: moq20,
-    image: { alt: "Tiêu đen 550 g/l", caption: "Ảnh cận sản phẩm – tiêu đen" },
+    image: { alt: "Hạt tiêu đen trong muỗng bên cạnh bao đay" },
+    gallery: [
+      { alt: "Chùm tiêu xanh trên dây" },
+      { alt: "Bàn tay cầm hạt tiêu đen khô" },
+    ],
   },
   "white-pepper-630gl": {
     name: "Tiêu trắng 630 g/l",
@@ -355,76 +295,10 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [pepperBag],
     loadingPorts: southPorts,
     moq: moq20,
-    image: { alt: "Tiêu trắng 630 g/l", caption: "Ảnh cận sản phẩm – tiêu trắng" },
+    image: { alt: "Hạt tiêu trong muỗng kim loại trên nền tối" },
   },
 
-  // ------------------------------------------------------------------ FRUITS
-  "white-flesh-dragon-fruit": {
-    name: "Thanh long ruột trắng – Tươi",
-    shortDescription: "Thanh long Bình Thuận tươi, phân loại theo số trái và làm lạnh sơ bộ cho container lạnh.",
-    overview:
-      "Thanh long ruột trắng tươi (giống Bình Thuận) từ vùng trồng đã được cấp mã số. Rửa, phân loại theo trọng lượng và làm lạnh sơ bộ tại nhà đóng gói. Yêu cầu riêng của từng thị trường (ví dụ chiếu xạ hoặc xử lý hơi nước nóng) được xác nhận theo thị trường trước khi ký hợp đồng.",
-    crop: "Vụ 2026",
-    processing: ["Rửa tại nhà đóng gói", "Phân loại", "Làm lạnh sơ bộ"],
-    spec: {
-      variety: "Ruột trắng Bình Thuận (Hylocereus undatus)",
-      sizeCount: "300 – 600 g / trái · 8–16 trái / thùng 5 kg",
-      storageTemp: "5 – 8 °C",
-      shelfLife: "25 – 30 ngày ở 5 °C",
-      season: "Quanh năm, cao điểm tháng 5 – 8",
-      treatment: "Tùy thị trường (VHT / chiếu xạ)",
-      packing: "Thùng carton thông gió 5 kg",
-    },
-    packings: [fruitCarton],
-    loadingPorts: ["Cát Lái (TP. Hồ Chí Minh)", "Tân Sơn Nhất (hàng không)"],
-    moq: "1 × container lạnh 40 ft · hàng không từ 1 pallet",
-    image: { alt: "Thanh long ruột trắng tươi", caption: "Ảnh cận sản phẩm – thanh long" },
-    gallery: [{ alt: "Vườn thanh long", caption: "Vùng nguyên liệu – Bình Thuận" }],
-  },
-  "cat-chu-mango": {
-    name: "Xoài Cát Chu – Tươi",
-    shortDescription: "Xoài ngọt, ít xơ từ Đồng Tháp cho thị trường châu Á và Trung Đông.",
-    overview:
-      "Xoài Cát Chu từ các vườn tại Đồng Tháp, thu hoạch ở độ già xanh để vận chuyển đường biển. Điều kiện nhập khẩu và phương pháp xử lý khác nhau theo thị trường đích — xác nhận theo từng thị trường.",
-    crop: "Vụ 2026",
-    processing: ["Xử lý nước nóng", "Phân loại", "Làm lạnh sơ bộ"],
-    spec: {
-      variety: "Cát Chu",
-      sizeCount: "250 – 400 g / trái",
-      storageTemp: "10 – 13 °C",
-      shelfLife: "18 – 21 ngày",
-      season: "Tháng 3 – 6 (chính vụ), tháng 10 – 12 (nghịch vụ)",
-      treatment: "Nước nóng / VHT tùy thị trường",
-      packing: "Thùng carton 5 kg",
-    },
-    packings: [fruitCarton],
-    loadingPorts: ["Cát Lái (TP. Hồ Chí Minh)"],
-    moq: "1 × container lạnh 40 ft",
-    image: { alt: "Xoài Cát Chu", caption: "Ảnh cận sản phẩm – xoài Cát Chu" },
-  },
-  "frozen-durian-ri6": {
-    name: "Sầu riêng Ri6 đông lạnh – Nguyên trái & Múi",
-    shortDescription: "Sầu riêng Ri6 cấp đông nhanh, nguyên trái hoặc múi đóng gói hút chân không.",
-    overview:
-      "Sầu riêng Ri6 thu hoạch khi đủ độ chín và cấp đông nhanh (tâm sản phẩm -35 °C) ở dạng nguyên trái hoặc múi đóng gói hút chân không. Phù hợp cho dịch vụ ăn uống và nhà sản xuất món tráng miệng.",
-    crop: "Vụ 2026",
-    processing: ["Cấp đông nhanh", "Đóng gói hút chân không (múi)"],
-    spec: {
-      variety: "Ri6",
-      sizeCount: "Nguyên trái 2 – 4 kg · múi gói 400 g",
-      storageTemp: "≤ -18 °C",
-      shelfLife: "24 tháng ở trạng thái đông lạnh",
-      season: "Quanh năm từ hàng tồn kho đông lạnh",
-      treatment: "Cấp đông nhanh",
-      packing: "Thùng carton ngoài 10 kg",
-    },
-    packings: [frozenCarton],
-    loadingPorts: ["Cát Lái (TP. Hồ Chí Minh)"],
-    moq: "1 × container lạnh 40 ft",
-    image: { alt: "Múi sầu riêng đông lạnh", caption: "Ảnh cận sản phẩm – sầu riêng" },
-  },
-
-  // ------------------------------------------------------------------ SPICES
+  // ------------------------------------------------------------------ CINNAMON
   "split-cassia-cinnamon": {
     name: "Quế chẻ",
     shortDescription: "Vỏ quế chẻ cạo vỏ, hàm lượng tinh dầu cao, dành cho nhà xay gia vị.",
@@ -432,6 +306,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
       "Vỏ quế từ cây 10–15 năm tuổi tại Yên Bái, được cạo vỏ, chẻ, phơi nắng và sấy lại trước khi đóng gói. Quy cách theo chiều dài, hàm lượng tinh dầu và độ ẩm.",
     crop: "Vụ Xuân 2026",
     processing: ["Cạo vỏ", "Phơi nắng", "Sấy lại"],
+    grade: "Quế chẻ 2–3% tinh dầu",
     spec: {
       form: "Chẻ, đã cạo vỏ",
       size: "30 – 45 cm, rộng 2 – 4 cm",
@@ -439,11 +314,57 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
       packing: "Thùng carton 10 kg / bao PP",
       shelfLife: "24 tháng",
     },
-    packings: [spiceCarton],
+    packings: [spiceCarton, spiceBag],
     loadingPorts: northPorts,
     moq: moq20,
-    image: { alt: "Vỏ quế chẻ", caption: "Ảnh cận sản phẩm – quế chẻ" },
+    image: { alt: "Đống vỏ quế" },
+    gallery: [
+      { alt: "Thanh quế xếp chồng" },
+      { alt: "Thanh quế và hoa hồi trên mặt gỗ" },
+    ],
   },
+  "cassia-sticks-8cm": {
+    name: "Quế ống – Cắt 8 cm",
+    shortDescription: "Quế cuộn ống cắt 8 cm cho lọ gia vị bán lẻ và dịch vụ ăn uống.",
+    overview:
+      "Quế ống vỏ mỏng được cuộn và cắt đều 8 cm, làm sạch và phân loại theo đường kính. Phù hợp cho lọ gia vị bán lẻ, đồ uống nóng pha gia vị và dịch vụ ăn uống.",
+    crop: "Vụ Xuân 2026",
+    processing: ["Cuộn ống", "Cắt theo chiều dài", "Phơi nắng"],
+    grade: "Quế ống 8 cm",
+    spec: {
+      form: "Dạng ống / thanh",
+      size: "8 cm (±0.5 cm), Ø 0.8 – 1.2 cm",
+      processing: "Cuộn ống, cắt, phơi nắng",
+      packing: "Thùng carton 10 kg",
+      shelfLife: "24 tháng",
+    },
+    packings: [spiceCarton],
+    loadingPorts: northPorts,
+    moq: "1 × cont 20 ft · có thể đóng ghép với hoa hồi",
+    image: { alt: "Thanh quế cuộn cùng bột quế" },
+  },
+  "cassia-powder": {
+    name: "Bột quế",
+    shortDescription: "Bột quế xay mịn cho ngành bánh, hỗn hợp gia vị và bán lẻ.",
+    overview:
+      "Vỏ quế được làm sạch, sấy lại và xay theo cỡ lưới (mesh) người mua yêu cầu. Có tùy chọn tiệt trùng bằng hơi nước cho người mua có giới hạn vi sinh.",
+    crop: "2026",
+    processing: ["Xay", "Rây", "Tiệt trùng hơi nước (tùy chọn)"],
+    grade: "Bột 60 mesh",
+    spec: {
+      form: "Dạng bột",
+      size: "60 mesh (cỡ mesh khác theo yêu cầu)",
+      processing: "Xay, rây",
+      packing: "Bao giấy kraft 25 kg",
+      shelfLife: "18 tháng",
+    },
+    packings: [powderBag],
+    loadingPorts: northPorts,
+    moq: "5 MT",
+    image: { alt: "Thanh quế đặt trên bột quế" },
+  },
+
+  // ------------------------------------------------------------------ STAR ANISE
   "star-anise-autumn": {
     name: "Hoa hồi – Vụ thu",
     shortDescription: "Hoa hồi nguyên cánh, màu nâu đỏ từ vụ chính tại Lạng Sơn.",
@@ -451,6 +372,7 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
       "Hoa hồi vụ thu từ Lạng Sơn: bông to, cánh đầy, hương thơm đậm. Phân loại theo tỷ lệ bông nguyên và phơi khô đến độ ẩm an toàn.",
     crop: "Vụ Thu 2026",
     processing: ["Phơi nắng", "Phân loại thủ công"],
+    grade: "Vụ thu ≥ 80% bông nguyên",
     spec: {
       form: "Bông nguyên",
       size: "≥ 2.5 cm, ≥ 80% bông nguyên",
@@ -461,6 +383,103 @@ export const productsVi: Record<string, DeepPartial<Product>> = {
     packings: [spiceCarton],
     loadingPorts: northPorts,
     moq: moq20,
-    image: { alt: "Hoa hồi nguyên bông", caption: "Ảnh cận sản phẩm – hoa hồi" },
+    image: { alt: "Hoa hồi nguyên bông chất đống trên bàn gỗ" },
+    gallery: [
+      { alt: "Hoa hồi nguyên bông, nhìn từ trên xuống" },
+      { alt: "Một bông hoa hồi trên nền tối" },
+    ],
+  },
+  "star-anise-spring": {
+    name: "Hoa hồi – Vụ xuân",
+    shortDescription: "Bông hồi vụ xuân nhỏ hơn, màu nhạt hơn — lựa chọn tối ưu chi phí cho xay bột và chiết xuất.",
+    overview:
+      "Hoa hồi vụ xuân có bông nhỏ hơn và tỷ lệ cánh gãy cao hơn. Rất phù hợp cho xay bột, chiết xuất tinh dầu và phối trộn gia vị.",
+    crop: "Vụ Xuân 2026",
+    processing: ["Phơi nắng", "Phân loại bằng máy"],
+    grade: "Vụ xuân ≥ 70% bông nguyên",
+    spec: {
+      form: "Bông nguyên / cánh gãy",
+      size: "≥ 2 cm, ≥ 70% bông nguyên",
+      processing: "Phơi nắng, phân loại bằng máy",
+      packing: "Bao PP 20 kg / thùng carton 10 kg",
+      shelfLife: "24 tháng",
+    },
+    packings: [spiceBag, spiceCarton],
+    loadingPorts: northPorts,
+    moq: moq20,
+    image: { alt: "Hoa hồi xếp trên nền tối" },
+  },
+
+  // ------------------------------------------------------------------ DRIED MANGO
+  "soft-dried-mango-bulk": {
+    name: "Xoài sấy dẻo – Lát hàng xá",
+    shortDescription: "Xoài sấy dẻo cắt lát, đóng thùng carton hàng xá cho nhà đóng gói snack và dịch vụ ăn uống.",
+    overview:
+      "Xoài chín từ Đồng bằng sông Cửu Long được gọt vỏ, cắt lát và sấy nhẹ nhàng để đạt độ mềm dẻo. Đóng trong túi đạt chuẩn thực phẩm bên trong thùng carton 10 kg, phù hợp cho đóng gói lại, trail mix và dịch vụ ăn uống.",
+    crop: "Vụ 2026",
+    processing: ["Cắt lát", "Sấy nhiệt độ thấp", "Dò kim loại"],
+    grade: "Dạng lát",
+    spec: {
+      variety: "Cát Chu / Keo (tùy nguồn hàng)",
+      cut: "Lát dày 5 – 8 mm, dài 6 – 10 cm",
+      sugar: "Ngâm đường mía (theo quy cách)",
+      additives: "Axit citric; không phẩm màu nhân tạo",
+      texture: "Mềm, dẻo",
+      packing: "Thùng carton 10 kg (2 túi PE × 5 kg)",
+      shelfLife: "12 tháng",
+    },
+    packings: [mangoCarton],
+    loadingPorts: southPorts,
+    moq: "1 × cont 20 ft · có thể ghép pallet",
+    image: { alt: "Lát xoài sấy dẻo trên giấy nến" },
+    gallery: [
+      { alt: "Miếng xoài sấy, cận cảnh" },
+      { alt: "Lát xoài sấy trên nền trắng" },
+    ],
+  },
+  "owi-chewi-dried-mango": {
+    name: "Xoài sấy dẻo Owi Chewi – Túi bán lẻ",
+    shortDescription: "Thương hiệu Owi Chewi của chúng tôi: túi xoài sấy dẻo sẵn sàng lên kệ.",
+    overview:
+      "Owi Chewi là thương hiệu bán lẻ xoài sấy dẻo của chúng tôi, đóng trong túi đứng có khóa zip đóng mở nhiều lần. Cung cấp cho nhà phân phối và nhà bán lẻ dưới dạng hàng mang thương hiệu, hoặc làm nhãn riêng với cùng sản phẩm.",
+    crop: "Vụ 2026",
+    processing: ["Cắt lát", "Sấy nhiệt độ thấp", "Túi nạp khí nitơ"],
+    grade: "Túi bán lẻ",
+    spec: {
+      variety: "Cát Chu / Keo (tùy nguồn hàng)",
+      cut: "Dạng lát",
+      sugar: "Ngọt nhẹ",
+      additives: "Axit citric; không phẩm màu nhân tạo",
+      texture: "Mềm, dẻo",
+      packing: "Túi 100 g / 250 g / 500 g",
+      shelfLife: "12 tháng",
+    },
+    packings: [mangoPouch, mangoCarton],
+    loadingPorts: southPorts,
+    moq: "200 carton · ghép nhiều cỡ túi",
+    image: { alt: "Xoài sấy dẻo Owi Chewi trong bát" },
+    gallery: [{ alt: "Bát xoài sấy dẻo cắt lát" }],
+  },
+  "low-sugar-dried-mango": {
+    name: "Xoài sấy ít đường",
+    shortDescription: "Xoài sấy giảm đường cho các dòng snack hướng đến sức khỏe.",
+    overview:
+      "Xoài sấy không bổ sung đường sucrose ngoài một lần ngâm nhẹ, giữ vị ngọt tự nhiên của trái. Được ưa chuộng bởi các nhà bán lẻ thực phẩm sức khỏe và nhà sản xuất ngũ cốc ăn sáng.",
+    crop: "Vụ 2026",
+    processing: ["Cắt lát", "Sấy nhiệt độ thấp"],
+    grade: "Ít đường",
+    spec: {
+      variety: "Cát Chu / Keo (tùy nguồn hàng)",
+      cut: "Dạng lát hoặc hạt lựu 10 × 10 mm",
+      sugar: "Giảm đường (theo quy cách)",
+      additives: "Không",
+      texture: "Mềm, hơi chắc",
+      packing: "Thùng carton 10 kg",
+      shelfLife: "9 tháng",
+    },
+    packings: [mangoCarton],
+    loadingPorts: southPorts,
+    moq: "3 MT",
+    image: { alt: "Lát xoài sấy trên nền trắng" },
   },
 };

@@ -5,6 +5,17 @@ import type { CategoryKey, SpecField } from "./types";
  * The frontend renders spec rows from this ordered config — one schema per
  * category instead of a single rigid table.
  */
+const spiceSchema: SpecField[] = [
+  { key: "form", label: "Form" },
+  { key: "size", label: "Length / size" },
+  { key: "moistureMax", label: "Moisture", unit: "%", prefix: "≤" },
+  { key: "oilContent", label: "Volatile oil", unit: "%", prefix: "≥" },
+  { key: "admixtureMax", label: "Admixture", unit: "%", prefix: "≤" },
+  { key: "processing", label: "Processing" },
+  { key: "packing", label: "Packing" },
+  { key: "shelfLife", label: "Shelf life" },
+];
+
 export const specSchemas: Record<CategoryKey, SpecField[]> = {
   coffee: [
     { key: "species", label: "Species" },
@@ -14,18 +25,6 @@ export const specSchemas: Record<CategoryKey, SpecField[]> = {
     { key: "foreignMatterMax", label: "Foreign matter", unit: "%", prefix: "≤" },
     { key: "blackBrokenMax", label: "Black & broken", unit: "%", prefix: "≤" },
     { key: "processing", label: "Processing" },
-    { key: "cropYear", label: "Crop" },
-    { key: "packing", label: "Packing" },
-    { key: "shelfLife", label: "Shelf life" },
-  ],
-  rice: [
-    { key: "variety", label: "Variety" },
-    { key: "brokenMax", label: "Broken kernels", unit: "%", prefix: "≤" },
-    { key: "moistureMax", label: "Moisture", unit: "%", prefix: "≤" },
-    { key: "grainLength", label: "Average grain length", unit: "mm", prefix: "≥" },
-    { key: "chalkyMax", label: "Chalky kernels", unit: "%", prefix: "≤" },
-    { key: "purity", label: "Varietal purity", unit: "%", prefix: "≥" },
-    { key: "milling", label: "Milling degree" },
     { key: "cropYear", label: "Crop" },
     { key: "packing", label: "Packing" },
     { key: "shelfLife", label: "Shelf life" },
@@ -50,23 +49,16 @@ export const specSchemas: Record<CategoryKey, SpecField[]> = {
     { key: "micro", label: "Microbiology" },
     { key: "packing", label: "Packing" },
   ],
-  fruits: [
-    { key: "variety", label: "Variety" },
-    { key: "sizeCount", label: "Size / count" },
-    { key: "brixMin", label: "Brix", unit: "°Bx", prefix: "≥" },
-    { key: "storageTemp", label: "Storage temperature" },
-    { key: "shelfLife", label: "Shelf life" },
-    { key: "season", label: "Seasonality" },
-    { key: "treatment", label: "Post-harvest treatment" },
-    { key: "packing", label: "Packing" },
-  ],
-  spices: [
-    { key: "form", label: "Form" },
-    { key: "size", label: "Length / size" },
+  cinnamon: spiceSchema,
+  anise: spiceSchema,
+  mango: [
+    { key: "variety", label: "Mango variety" },
+    { key: "cut", label: "Cut / slice" },
     { key: "moistureMax", label: "Moisture", unit: "%", prefix: "≤" },
-    { key: "oilContent", label: "Volatile oil", unit: "%", prefix: "≥" },
-    { key: "admixtureMax", label: "Admixture", unit: "%", prefix: "≤" },
-    { key: "processing", label: "Processing" },
+    { key: "waterActivityMax", label: "Water activity (aw)", prefix: "≤" },
+    { key: "sugar", label: "Added sugar" },
+    { key: "additives", label: "Additives / preservatives" },
+    { key: "texture", label: "Texture" },
     { key: "packing", label: "Packing" },
     { key: "shelfLife", label: "Shelf life" },
   ],
@@ -75,9 +67,9 @@ export const specSchemas: Record<CategoryKey, SpecField[]> = {
 /** The three spec rows previewed on product cards, per category. */
 export const cardSpecKeys: Record<CategoryKey, string[]> = {
   coffee: ["grade", "screen", "moistureMax"],
-  rice: ["brokenMax", "moistureMax", "grainLength"],
   cashew: ["grade", "count", "moistureMax"],
   pepper: ["density", "moistureMax", "processing"],
-  fruits: ["sizeCount", "brixMin", "storageTemp"],
-  spices: ["form", "size", "moistureMax"],
+  cinnamon: ["form", "size", "oilContent"],
+  anise: ["form", "size", "moistureMax"],
+  mango: ["cut", "moistureMax", "sugar"],
 };

@@ -73,7 +73,7 @@ export default async function SupplyChainPage() {
 
       <section className="section-y bg-sand" aria-labelledby="control-title">
         <div className="container-x grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <Media image={{ kind: "human", alt: s.imageAlt, caption: s.imageCaption }} className="aspect-[4/3] rounded-md lg:col-span-6" />
+          <Media image={{ src: "/images/cashew/sack.jpg", kind: "human", alt: s.imageAlt, caption: s.imageCaption }} className="aspect-[4/3] rounded-md lg:col-span-6" />
           <div className="lg:col-span-6">
             <Kicker className="mb-4">{s.whyKicker}</Kicker>
             <h2 id="control-title" className="t-h2">

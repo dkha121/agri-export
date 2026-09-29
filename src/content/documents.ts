@@ -13,7 +13,7 @@ export interface DocStrings {
   certTitle: (scheme: string, entity: string) => string;
   coaTitle: (label: string) => string;
   coaDesc: string;
-  coaLabels: Record<"coffee" | "rice" | "cashew" | "pepper", string>;
+  coaLabels: Record<"coffee" | "cashew" | "pepper" | "spices" | "mango", string>;
   general: Record<string, { title: string; description?: string }>;
 }
 
@@ -23,7 +23,7 @@ export const docStringsEn: DocStrings = {
   certTitle: (s, e) => `${s} certificate — ${e}`,
   coaTitle: (l) => `${l} — Sample Certificate of Analysis`,
   coaDesc: "Reference-only COA layout. Real COAs are issued per lot.",
-  coaLabels: { coffee: "Green coffee", rice: "Rice", cashew: "Cashew kernels", pepper: "Black pepper" },
+  coaLabels: { coffee: "Green coffee", cashew: "Cashew kernels", pepper: "Black pepper", spices: "Cinnamon & star anise", mango: "Soft dried mango" },
   general: {
     "catalog-2026": { title: "Product catalogue 2026/27", description: "All categories, grades and packing formats in one PDF." },
     "company-profile": {
@@ -54,7 +54,7 @@ export const docStringsVi: DocStrings = {
   certTitle: (s, e) => `Chứng nhận ${s} — ${e}`,
   coaTitle: (l) => `${l} — Phiếu kết quả phân tích (COA) mẫu`,
   coaDesc: "Mẫu COA chỉ để tham khảo bố cục. COA thật được cấp theo từng lô.",
-  coaLabels: { coffee: "Cà phê nhân", rice: "Gạo", cashew: "Hạt điều nhân", pepper: "Tiêu đen" },
+  coaLabels: { coffee: "Cà phê nhân", cashew: "Hạt điều nhân", pepper: "Tiêu đen", spices: "Quế & hồi", mango: "Xoài sấy dẻo" },
   general: {
     "catalog-2026": { title: "Catalogue sản phẩm 2026/27", description: "Toàn bộ ngành hàng, cấp hạt và quy cách đóng gói trong một file PDF." },
     "company-profile": {
@@ -111,12 +111,19 @@ export function buildDocuments(products: Product[], certificates: Certificate[],
     verified: false,
   }));
 
-  const sampleCoas: DocumentItem[] = (["coffee", "rice", "cashew", "pepper"] as const).map((key) => ({
+  const coaCategories: Record<keyof DocStrings["coaLabels"], string[]> = {
+    coffee: ["coffee"],
+    cashew: ["cashew"],
+    pepper: ["pepper"],
+    spices: ["cinnamon", "anise"],
+    mango: ["mango"],
+  };
+  const sampleCoas: DocumentItem[] = (Object.keys(coaCategories) as (keyof typeof coaCategories)[]).map((key) => ({
     id: `coa-sample-${key}`,
     type: "Sample COA",
     title: s.coaTitle(s.coaLabels[key]),
     description: s.coaDesc,
-    productSlugs: products.filter((p) => p.category === key).map((p) => p.slug),
+    productSlugs: products.filter((p) => coaCategories[key].includes(p.category)).map((p) => p.slug),
     locale: "EN",
     version: "Reference",
     publishedAt: "2026-08-01",

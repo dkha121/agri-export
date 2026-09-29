@@ -7,7 +7,7 @@
  * company-verified data before production (§1, §23, §25).
  */
 
-export type CategoryKey = "coffee" | "rice" | "cashew" | "pepper" | "fruits" | "spices";
+export type CategoryKey = "coffee" | "cashew" | "pepper" | "cinnamon" | "anise" | "mango";
 
 export type ImageKind = "origin" | "product" | "factory" | "human" | "logistics";
 

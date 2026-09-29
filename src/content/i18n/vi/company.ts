@@ -11,10 +11,10 @@ export const companyVi: {
   sustainabilityMetrics?: DeepPartial<typeof sustainabilityMetrics>;
 } = {
   company: {
-    legalName: "[Tên pháp lý công ty] Công ty Cổ phần",
-    registration: "Mã số doanh nghiệp: [XXXXXXXXXX]",
+    legalName: "TrustVN",
+    registration: "Mã số doanh nghiệp: Chưa có",
     tagline: "Vietnam Origin. Global Supply.",
-    headquarters: "[Địa chỉ], TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam",
+    headquarters: "17A1 Đường 9, Tăng Nhơn Phú, TP. Hồ Chí Minh, Việt Nam",
     hours: "Thứ Hai – Thứ Sáu, 08:00 – 17:30 (giờ Việt Nam, UTC+7)",
   },
   trustMetrics: [
@@ -39,13 +39,13 @@ export const companyVi: {
       languages: "Tiếng Anh, tiếng Đức",
     },
     {
-      team: "Bộ phận Gạo & Điều",
-      region: "Châu Á · Trung Đông · Châu Phi",
+      team: "Bộ phận Điều & Xoài sấy",
+      region: "Châu Á · Trung Đông · Châu Đại Dương",
       name: "[Tên quản lý kinh doanh]",
       languages: "Tiếng Anh, tiếng Trung",
     },
     {
-      team: "Bộ phận Trái cây tươi & Gia vị",
+      team: "Bộ phận Quế & Hoa hồi",
       region: "Tất cả thị trường",
       name: "[Tên quản lý kinh doanh]",
       languages: "Tiếng Anh, tiếng Hàn",
@@ -60,12 +60,12 @@ export const companyVi: {
   offices: [
     {
       name: "Trụ sở chính & kinh doanh xuất khẩu",
-      address: "[Địa chỉ], TP. Thủ Đức, TP. Hồ Chí Minh, Việt Nam",
+      address: "17A1 Đường 9, Tăng Nhơn Phú, TP. Hồ Chí Minh, Việt Nam",
       note: "Kinh doanh, QA/tuân thủ, logistics",
     },
     { name: "Nhà máy chế biến cà phê", address: "[Địa chỉ xác thực], Buôn Ma Thuột, Đắk Lắk", note: "Tham quan theo lịch hẹn" },
     { name: "Nhà máy chế biến điều", address: "[Địa chỉ xác thực], Đồng Xoài, Đồng Nai", note: "Tham quan theo lịch hẹn" },
-    { name: "Nhà máy xay xát gạo", address: "[Địa chỉ xác thực], Cần Thơ", note: "Tham quan theo lịch hẹn" },
+    { name: "Nhà máy trái cây sấy", address: "[Địa chỉ xác thực], Cao Lãnh, Đồng Tháp", note: "Tham quan theo lịch hẹn" },
   ],
   markets: [
     { region: "Châu Âu", countries: ["Đức", "Hà Lan", "Bỉ", "Ý", "Tây Ban Nha", "Ba Lan", "Vương quốc Anh"] },
